@@ -39,4 +39,5 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'plan'
+        commandOptions: '-lock=false'
         environmentServiceNameAzureRM: 'newasr'
