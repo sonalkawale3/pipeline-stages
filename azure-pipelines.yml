@@ -21,8 +21,8 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)\env\dev'
-    backendServiceArm: 'asr'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+    backendServiceArm: 'newasr'
     backendAzureRmResourceGroupName: 'for-backend'
     backendAzureRmStorageAccountName: 'pipelinekeliye'
     backendAzureRmContainerName: 'pipestorage'
