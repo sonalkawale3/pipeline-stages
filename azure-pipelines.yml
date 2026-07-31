@@ -5,23 +5,38 @@ trigger:
 
 pool: windows-agent-sonal
 
-jobs:
-- job: TerraformInitPlan
-  displayName: to bhai yaha pe init chalega
-  steps:
-  - task: TerraformTask@5
-    inputs:
-      provider: 'azurerm'
-      command: 'init'
-      backendServiceArm: 'newasr'
-      backendAzureRmResourceGroupName: 'for-backend'
-      backendAzureRmStorageAccountName: 'pipelinekeliye'
-      backendAzureRmContainerName: 'pipestorage'
-      backendAzureRmKey: 'dev12.state'
+stages:
+- stage: Initstage
+  jobs:
+  - job: TerraformInitPlan
+    displayName: to bhai yaha pe init chalega
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'newasr'
+        backendAzureRmResourceGroupName: 'for-backend'
+        backendAzureRmStorageAccountName: 'pipelinekeliye'
+        backendAzureRmContainerName: 'pipestorage'
+        backendAzureRmKey: 'dev12.state'
 
-- job: TFsec
-  displayName: yaha pe scan hoga
-  steps:
-  - task: tfsec@1
-    inputs:
-      version: 'v1.26.0'
+- stage: Scanningstage
+  jobs:
+  - job: Tfsec
+    displayName: to bhai yaha pe scan hoga
+    steps:
+    - task: tfsec@1
+      inputs:
+        version: 'v1.26.0'
+
+- stage: TerraformPlan
+  jobs:
+  - job: Terraformplan
+    displayName: to bhai yaha pe plan chalega
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        environmentServiceNameAzureRM: 'newasr'
