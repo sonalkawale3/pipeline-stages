@@ -10,6 +10,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
+    backendServiceArm: 'asr'
     backendAzureRmResourceGroupName: 'for-backend'
     backendAzureRmStorageAccountName: 'pipelinekeliye'
     backendAzureRmContainerName: 'pipestorage'
