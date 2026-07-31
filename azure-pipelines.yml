@@ -30,14 +30,23 @@ stages:
       inputs:
         version: 'v1.26.0'
 
-- stage: TerraformPlan
+- stage: TerraformInit
   jobs:
-  - job: Terraformplan
-    displayName: to bhai yaha pe plan chalega
+  - job: TerraformpInit
+    displayName: to bhai yaha pe Init chalega
     steps:
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
+        command: 'init'
+        backendServiceArm: 'newasr'
+        backendAzureRmResourceGroupName: 'for-backend'
+        backendAzureRmStorageAccountName: 'pipelinekeliye'
+        backendAzureRmContainerName: 'pipestorage'
+        backendAzureRmKey: 'dev12.state'
+    
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
         command: 'plan'
-        commandOptions: '-lock=false'
         environmentServiceNameAzureRM: 'newasr'
