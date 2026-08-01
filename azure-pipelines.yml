@@ -20,6 +20,7 @@ stages:
         backendAzureRmStorageAccountName: 'pipelinekeliye'
         backendAzureRmContainerName: 'pipestorage'
         backendAzureRmKey: 'dev12.state'
+        backendAzureRmUseAzureADAuth: false
 
 - stage: Scanningstage
   jobs:
