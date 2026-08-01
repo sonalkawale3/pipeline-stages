@@ -46,29 +46,3 @@ stages:
         backendAzureRmContainerName: 'pipestorage'
         backendAzureRmKey: 'dev12.state'
     
-  - job:
-    dependsOn: TerraformpInit
-    pool: server
-    steps:
-    - task: ManualIntervention@8
-      inputs:
-        instructions: 'check karlo'
-        emailRecipients: 'kawalesonal@gmail.com'
-        onTimeout: 'resume'
-
-- stage: 
-  jobs:
-    - job: 
-      steps:
-      - task: TerraformTask@5
-        inputs:
-          provider: 'azurerm'
-          command: 'init'
-          backendServiceArm: 'newasr'
-          backendAzureRmResourceGroupName: 'for-backend'
-          backendAzureRmStorageAccountName: 'pipelinekeliye'
-          backendAzureRmContainerName: 'pipestorage'
-          backendAzureRmKey: 'dev12.state'
-
-
-       
