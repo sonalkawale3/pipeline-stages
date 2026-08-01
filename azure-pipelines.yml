@@ -46,8 +46,19 @@ stages:
         backendAzureRmContainerName: 'pipestorage'
         backendAzureRmKey: 'dev12.state'
     
+
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
         command: 'plan'
         environmentServiceNameAzureRM: 'newasr'
+
+  - job:
+    pool: server
+    steps:
+    - task: ManualIntervention@8
+      inputs:
+        instructions: 'check karlo'
+        emailRecipients: 'kawalesonal@gmail.com'
+        onTimeout: 'resume'
+       
