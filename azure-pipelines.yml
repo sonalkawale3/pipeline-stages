@@ -15,7 +15,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'asr'
+        backendServiceArm: 'newasr'
         backendAzureRmResourceGroupName: 'for-backend'
         backendAzureRmStorageAccountName: 'pipelinekeliye'
         backendAzureRmContainerName: 'pipestorage'
@@ -39,7 +39,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'asr'
+        backendServiceArm: 'newasr'
         backendAzureRmResourceGroupName: 'for-backend'
         backendAzureRmStorageAccountName: 'pipelinekeliye'
         backendAzureRmContainerName: 'pipestorage'
@@ -49,4 +49,4 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'plan'
-        environmentServiceNameAzureRM: 'asr'
+        environmentServiceNameAzureRM: 'newasr'
