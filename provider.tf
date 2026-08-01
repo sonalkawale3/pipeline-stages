@@ -5,13 +5,13 @@ terraform{
         version = "4.1.0"
       }
     }
-
+/* 
 backend "azurerm"{
   storage_account_name = "pipelinekeliye"
   resource_group_name ="for-backend"
   container_name ="pipestorage"
   key ="dev12.tfstate"
-}
+} */
 }
 
 provider "azurerm" {
